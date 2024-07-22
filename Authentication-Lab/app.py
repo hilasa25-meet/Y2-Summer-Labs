@@ -11,19 +11,20 @@ app = Flask(__name__)
 
 app.route('/')
 def main_page():
-	return '<html><p>main page</p><a href= \'/signup.html \' >go to main page</a></html>'
+    return render_template("signup.html")
+	
 
 @app.route('/signin')
 def signin_page():
-	return '<html><p>signin page</p><a href= \'/ \' >go to main page</a></html>'
+	return render_template("home.html")
 
 app.route('/home')
 def home_page():
-	return '<html><p>home page</p><a href= \'/ signin.html\' >go to signin page</a></html>'
+	return render_template("signin.html")
 
 app.route('/thanks')
 def thanks_page():
-	return '<html><p>thanks page</p><a href= \'/ home.html\' >go to home page</a></html>'
+	return render_template("home.html")
 
 app.route('/display')
 def display_page():
@@ -31,7 +32,7 @@ def display_page():
 
 app.route('/signout')
 def signout_page():
-	return '<html><p>signin page</p><a href= \'/signin.html \' >sign out!</a></html>'
+	return render_template("signin.html")
 
 
 @app.route('/signup', methods=['GET', 'POST'])
@@ -43,9 +44,9 @@ def signup():
        try:
        		login_session['user'] = 
 			auth.create_user_with_email_and_password(email, password)
-           return redirect(url_for('home'))
+           return redirect(url_for('home_page'))
        		except:
-           error = "Authentication failed"
+           error = "Opsi, login failed"
    			return render_template("signup.html")
 
 @app.route('/signin', methods=['GET', 'POST'])
@@ -59,7 +60,7 @@ def signin():
 			auth.create_user_with_email_and_password(email, password)
            return redirect(url_for('home'))
        		except:
-           error = "Authentication failed"
+           error = "Opsi, login failed"
    			return render_template("signin.html")
 
 

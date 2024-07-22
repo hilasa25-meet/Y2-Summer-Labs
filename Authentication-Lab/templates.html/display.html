@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html>
     <body>
+        <body style="background-color:RosyBrown;">
+</body>
         <h1> Hello user!</h1>
             <p> Your quotes are: </p>
             <ul>
                 {% for quote in quotes %}
-                <li> {{quote}} </li>
-                {% endfor %}
+                <li> {{quotes}} </li>
+                 {% endfor %}
             </ul>
 
-        <a href="home_page">Come back to the home page!</a>
+        <a href="home.html">Come back to the home page!</a>
     </body>
 </html>
